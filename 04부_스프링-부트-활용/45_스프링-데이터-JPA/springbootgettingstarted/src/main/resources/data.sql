@@ -1,1 +1,1 @@
-insert into account(id, password, username, email) values ('1', '1234', 'serenity', 'serenity@email.com')
+insert into account(id, password, username, email) values ('1', '1234', 'serenity', 'serenity@gmail.com')

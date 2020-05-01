@@ -17,6 +17,8 @@ public class Account {
 
     private String email;
 
+    private boolean active;
+
     public Long getId() {
         return id;
     }
@@ -47,6 +49,14 @@ public class Account {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     @Override
