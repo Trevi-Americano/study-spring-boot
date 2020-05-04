@@ -1,6 +1,7 @@
 package com.serenity;
 
 import com.serenity.account.Account;
+import com.serenity.account.AccountRepository;
 import com.serenity.account.Role;
 import org.neo4j.ogm.session.Session;
 import org.neo4j.ogm.session.SessionFactory;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Neo4jRunner implements ApplicationRunner {
     @Autowired
-    private SessionFactory sessionFactory;
+    private AccountRepository accountRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -25,9 +26,7 @@ public class Neo4jRunner implements ApplicationRunner {
 
         account.getRoles().add(role);
 
-        Session session = sessionFactory.openSession();
-        session.save(account);
-        sessionFactory.close();
+        accountRepository.save(account);
 
         System.out.println("finished");
     }
