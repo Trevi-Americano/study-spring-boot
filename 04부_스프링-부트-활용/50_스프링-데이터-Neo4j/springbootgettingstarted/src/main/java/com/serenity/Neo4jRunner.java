@@ -1,6 +1,7 @@
 package com.serenity;
 
 import com.serenity.account.Account;
+import com.serenity.account.Role;
 import org.neo4j.ogm.session.Session;
 import org.neo4j.ogm.session.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,11 @@ public class Neo4jRunner implements ApplicationRunner {
         Account account = new Account();
         account.setUsername("serenity");
         account.setEmail("serenity@email.com");
+
+        Role role = new Role();
+        role.setName("admin");
+
+        account.getRoles().add(role);
 
         Session session = sessionFactory.openSession();
         session.save(account);
